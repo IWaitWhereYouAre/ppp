@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valentine Bloom ✦</title>
-  <meta name="description" content="A perfect Valentine flower with constellation sparkles." />
+  <title>Constellation Bouquet ♡</title>
+  <meta name="description" content="A constellation bouquet for a hardworking friend." />
   <style>
     :root{
-      --bg1:#070711;
-      --bg2:#12081c;
-      --bg3:#1a0b20;
+      --bg0:#070611;
+      --bg1:#11071c;
+      --bg2:#1a0a22;
 
       --ink:#fff7fb;
       --muted:rgba(255,247,251,.78);
@@ -23,41 +23,59 @@
 
       --glass: rgba(255,255,255,.055);
       --border: rgba(255,255,255,.14);
-      --shadow: 0 22px 70px rgba(0,0,0,.55);
-
-      --glow: rgba(255, 125, 178, .35);
+      --shadow: 0 26px 80px rgba(0,0,0,.55);
+      --glow: rgba(255, 125, 178, .38);
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box }
     body{
       margin:0;
       min-height:100svh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(1200px 900px at 15% 10%, rgba(255,79,147,.20), transparent 60%),
-        radial-gradient(1000px 700px at 85% 20%, rgba(199,178,255,.18), transparent 58%),
-        radial-gradient(1000px 800px at 45% 90%, rgba(255,211,138,.12), transparent 62%),
-        linear-gradient(180deg, var(--bg1), var(--bg2) 55%, var(--bg3));
+        radial-gradient(1200px 900px at 16% 12%, rgba(255,79,147,.22), transparent 60%),
+        radial-gradient(1000px 700px at 84% 20%, rgba(199,178,255,.18), transparent 58%),
+        radial-gradient(1000px 800px at 50% 92%, rgba(255,211,138,.12), transparent 62%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 56%, var(--bg2));
       overflow-x:hidden;
     }
+
+    /* subtle “paper dust” */
     body::before{
       content:"";
-      position:fixed; inset:0; pointer-events:none;
+      position:fixed; inset:0;
+      pointer-events:none;
       background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.06) 0 1px, transparent 2px) 0 0/140px 140px,
-        radial-gradient(circle at 80% 60%, rgba(255,255,255,.05) 0 1px, transparent 2px) 0 0/180px 180px;
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.06) 0 1px, transparent 2px) 0 0/150px 150px,
+        radial-gradient(circle at 75% 55%, rgba(255,255,255,.05) 0 1px, transparent 2px) 0 0/190px 190px;
       mix-blend-mode: screen;
-      opacity:.35;
+      opacity:.32;
     }
 
-    .wrap{ max-width:980px; margin:0 auto; padding:28px 18px 44px; display:grid; gap:16px; }
-    header{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 46px;
+      display:grid;
+      gap: 16px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
 
     .badge{
-      display:inline-flex; align-items:center; gap:.55rem;
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
       padding:10px 12px;
       border:1px solid var(--border);
-      border-radius:999px;
+      border-radius: 999px;
       background: rgba(255,255,255,.04);
       backdrop-filter: blur(10px);
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
@@ -74,73 +92,93 @@
     .card{
       border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius: 24px;
+      border-radius: 26px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
       overflow:hidden;
       position:relative;
     }
+
+    /* vignette + ribbon gleam */
     .card::before{
       content:"";
-      position:absolute; inset:-2px; pointer-events:none;
+      position:absolute; inset:-2px;
       background:
-        radial-gradient(900px 600px at 50% 20%, rgba(255,79,147,.12), transparent 60%),
-        radial-gradient(800px 540px at 15% 80%, rgba(255,211,138,.08), transparent 60%),
-        radial-gradient(900px 700px at 85% 85%, rgba(199,178,255,.10), transparent 55%),
-        radial-gradient(1200px 900px at 50% 50%, transparent 55%, rgba(0,0,0,.25) 100%);
+        radial-gradient(900px 600px at 50% 18%, rgba(255,79,147,.12), transparent 60%),
+        radial-gradient(800px 540px at 12% 80%, rgba(255,211,138,.08), transparent 60%),
+        radial-gradient(900px 700px at 88% 85%, rgba(199,178,255,.10), transparent 55%),
+        radial-gradient(1200px 900px at 50% 50%, transparent 55%, rgba(0,0,0,.27) 100%);
+      pointer-events:none;
+    }
+    .card::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(120deg, transparent 0 35%, rgba(255,255,255,.06) 45%, transparent 60%);
+      transform: translateX(-40%);
+      animation: gleam 7.8s ease-in-out infinite;
+      pointer-events:none;
+      opacity:.6;
+    }
+    @keyframes gleam{
+      0%,100%{ transform: translateX(-45%); }
+      50%{ transform: translateX(45%); }
     }
 
     .grid{
       position:relative;
       display:grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 14px;
-      padding: 16px;
-      align-items:stretch;
+      gap: 16px;
+      padding: 18px;
+      align-items:center;
     }
-    @media (max-width: 900px){ .grid{ grid-template-columns:1fr; } }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
 
-    h1{ margin:10px 0 6px; font-size: clamp(22px, 3.2vw, 36px); line-height:1.08; letter-spacing:.2px; }
-    p{ margin:0; color:var(--muted); line-height:1.6; font-size:15px; }
+    h1{
+      margin: 10px 0 6px;
+      font-size: clamp(22px, 3.2vw, 38px);
+      line-height: 1.05;
+      letter-spacing: .2px;
+      font-weight: 820;
+      text-shadow: 0 10px 30px rgba(255,79,147,.12);
+    }
+    p{
+      margin:0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 60ch;
+    }
+
+    .pillrow{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 14px; }
+    .pill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      user-select:none;
+    }
+
     .note{
-      margin-top:12px;
+      margin-top: 14px;
       padding: 12px;
       border-radius: 16px;
       border: 1px dashed rgba(255,255,255,.18);
       color: var(--dim);
       background: rgba(0,0,0,.14);
       font-size: 13px;
-      line-height:1.55;
+      line-height: 1.55;
     }
 
-    .controls{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 130px 1fr 58px;
-      gap:10px;
-      align-items:center;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    input[type="range"]{
-      width:100%;
-      accent-color: var(--rose);
-    }
-    .value{
-      text-align:right;
-      font-variant-numeric: tabular-nums;
-      color: rgba(255,247,251,.9);
-    }
-
-    .btns{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px; }
     button{
       appearance:none; border:0; cursor:pointer;
       border-radius: 14px; padding: 10px 12px;
-      font-weight: 720; letter-spacing:.2px;
+      font-weight: 740; letter-spacing:.2px;
       color: rgba(14,8,18,.92);
       background: linear-gradient(135deg, var(--rose), var(--gold));
       box-shadow: 0 16px 34px rgba(255,79,147,.22);
@@ -155,33 +193,30 @@
       box-shadow:none;
     }
 
-    .stage{
+    .right{
       display:flex;
-      align-items:center;
       justify-content:center;
-      padding: 14px;
-      min-height: 520px;
+      align-items:center;
+      padding: 12px 6px 6px;
+    }
+    .bouquet{
+      width:min(460px, 96%);
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 0 20px var(--glow)) drop-shadow(0 0 40px rgba(199,178,255,.16));
+      animation: floaty 6.8s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%,100%{ transform: translateY(0px); }
+      50%{ transform: translateY(-8px); }
     }
 
-    .frame{
-      width: min(460px, 100%);
-      aspect-ratio: 1 / 1;
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.14);
-      background: radial-gradient(800px 500px at 50% 30%, rgba(255,79,147,.10), rgba(0,0,0,.12));
-      box-shadow: 0 18px 60px rgba(0,0,0,.35);
-      position:relative;
-      overflow:hidden;
-    }
-
-    canvas{ width:100%; height:100%; display:block; }
-
-    .hint{
-      position:absolute;
-      left:14px; bottom:12px;
-      font-size:12px;
-      color: rgba(255,247,251,.6);
-      user-select:none;
+    .twinkle{ animation: twinkle 3.1s ease-in-out infinite; transform-origin:center; }
+    .tw2{ animation-duration: 3.8s; animation-delay: .25s; }
+    .tw3{ animation-duration: 4.6s; animation-delay: .45s; }
+    @keyframes twinkle{
+      0%,100%{ opacity:.58; transform: scale(.94); }
+      50%{ opacity:1; transform: scale(1.10); }
     }
 
     footer{
@@ -193,329 +228,257 @@
       gap:10px;
       flex-wrap:wrap;
     }
+
+    /* background sparkles */
+    .sky{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.95;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,.08));
+    }
   </style>
 </head>
 
 <body>
+  <!-- background stars -->
+  <svg class="sky" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <g opacity=".9" fill="white">
+      <circle cx="7" cy="18" r=".35" opacity=".65"/>
+      <circle cx="14" cy="62" r=".25" opacity=".55"/>
+      <circle cx="21" cy="28" r=".28" opacity=".7"/>
+      <circle cx="31" cy="12" r=".32" opacity=".55"/>
+      <circle cx="44" cy="20" r=".25" opacity=".62"/>
+      <circle cx="56" cy="10" r=".36" opacity=".5"/>
+      <circle cx="66" cy="34" r=".28" opacity=".62"/>
+      <circle cx="72" cy="16" r=".22" opacity=".55"/>
+      <circle cx="83" cy="26" r=".33" opacity=".65"/>
+      <circle cx="92" cy="12" r=".24" opacity=".6"/>
+      <circle cx="10" cy="86" r=".28" opacity=".55"/>
+      <circle cx="24" cy="78" r=".22" opacity=".55"/>
+      <circle cx="38" cy="88" r=".35" opacity=".6"/>
+      <circle cx="58" cy="82" r=".25" opacity=".55"/>
+      <circle cx="70" cy="74" r=".28" opacity=".6"/>
+      <circle cx="86" cy="88" r=".22" opacity=".55"/>
+      <circle cx="94" cy="72" r=".3" opacity=".58"/>
+      <circle cx="78" cy="56" r=".24" opacity=".6"/>
+    </g>
+  </svg>
+
   <div class="wrap">
     <header>
-      <div class="badge"><span class="dot"></span> Valentine Bloom (perfect flower) ✦</div>
+      <div class="badge"><span class="dot"></span> Constellation Bouquet ♡</div>
       <div class="badge" id="dateBadge"></div>
     </header>
 
     <section class="card">
       <div class="grid">
         <div>
-          <h1 id="headline">For my hardworking star ✦</h1>
+          <h1 id="headline">To my favorite lawyer-in-the-making ✦</h1>
           <p id="subhead">
-            A perfect flower that keeps blooming—because you deserve softness, even on internship days.
+            Happy Valentine’s Day. I know internship + studying five days a week is a lot —
+            so I made you a bouquet that won’t wilt. It just keeps shining.
           </p>
 
-          <div class="controls">
-            <div class="row">
-              <div>Petals</div>
-              <input id="petals" type="range" min="40" max="240" value="140" />
-              <div class="value" id="petalsV">140</div>
-            </div>
-            <div class="row">
-              <div>Bloom</div>
-              <input id="bloom" type="range" min="10" max="100" value="72" />
-              <div class="value" id="bloomV">72</div>
-            </div>
-            <div class="row">
-              <div>Petal size</div>
-              <input id="size" type="range" min="10" max="100" value="56" />
-              <div class="value" id="sizeV">56</div>
-            </div>
-            <div class="row">
-              <div>Sparkle</div>
-              <input id="sparkle" type="range" min="0" max="100" value="55" />
-              <div class="value" id="sparkleV">55</div>
-            </div>
-          </div>
-
-          <div class="btns">
-            <button id="animateBtn">Bloom now ✨</button>
-            <button class="ghost" id="saveBtn">Download as PNG</button>
-            <button class="ghost" id="personalizeBtn">Personalize text ✍️</button>
+          <div class="pillrow">
+            <div class="pill">for the late nights</div>
+            <div class="pill">for the early mornings</div>
+            <div class="pill">for the “one more page”</div>
+            <div class="pill">for the girl who still deserves softness</div>
           </div>
 
           <div class="note" id="note">
             <b>tiny reminder:</b> You don’t have to earn rest. You deserve it.
-            You’re allowed to be ambitious <i>and</i> happy. I’m proud of you.
+            You’re allowed to be ambitious <i>and</i> happy. I’m proud of you — always.
+          </div>
+
+          <div class="btns">
+            <button id="sparkBtn">Make it sparkle ✨</button>
+            <button class="ghost" id="editBtn">Personalize ✍️</button>
           </div>
         </div>
 
-        <div class="stage">
-          <div class="frame">
-            <canvas id="c" width="1024" height="1024"></canvas>
-            <div class="hint">Tip: drag sliders → your flower changes live ✦</div>
-          </div>
+        <div class="right">
+          <!-- Pretty wrapped bouquet SVG (constellation flowers + gradients) -->
+          <svg class="bouquet" viewBox="0 0 520 620" role="img" aria-label="A constellation bouquet">
+            <defs>
+              <radialGradient id="bgHalo" cx="50%" cy="45%" r="60%">
+                <stop offset="0%" stop-color="rgba(255,79,147,.18)"/>
+                <stop offset="55%" stop-color="rgba(199,178,255,.10)"/>
+                <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+              </radialGradient>
+
+              <radialGradient id="starGlow" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="white" stop-opacity=".95"/>
+                <stop offset="55%" stop-color="white" stop-opacity=".22"/>
+                <stop offset="100%" stop-color="white" stop-opacity="0"/>
+              </radialGradient>
+
+              <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(255,255,255,.08)"/>
+                <stop offset="50%" stop-color="rgba(255,255,255,.03)"/>
+                <stop offset="100%" stop-color="rgba(0,0,0,.08)"/>
+              </linearGradient>
+
+              <linearGradient id="paperEdge" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="rgba(255,211,138,.20)"/>
+                <stop offset="50%" stop-color="rgba(255,79,147,.10)"/>
+                <stop offset="100%" stop-color="rgba(199,178,255,.18)"/>
+              </linearGradient>
+
+              <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="rgba(255,79,147,.75)"/>
+                <stop offset="45%" stop-color="rgba(255,211,138,.65)"/>
+                <stop offset="100%" stop-color="rgba(255,155,196,.65)"/>
+              </linearGradient>
+            </defs>
+
+            <!-- halo -->
+            <circle cx="260" cy="255" r="220" fill="url(#bgHalo)"/>
+
+            <!-- stems -->
+            <g fill="none" stroke-linecap="round" stroke="rgba(134,255,225,.40)" stroke-width="2.4">
+              <path d="M260 520 C225 440, 185 380, 145 315" />
+              <path d="M260 520 C252 440, 250 370, 250 295" />
+              <path d="M260 520 C298 440, 340 380, 380 315" />
+              <path d="M260 520 C240 470, 205 410, 175 345" />
+              <path d="M260 520 C280 470, 315 410, 345 345" />
+            </g>
+
+            <!-- bouquet paper wrap -->
+            <g>
+              <path d="M160 520
+                       C185 470, 220 430, 260 420
+                       C300 430, 335 470, 360 520
+                       C330 545, 295 565, 260 595
+                       C225 565, 190 545, 160 520 Z"
+                    fill="url(#paper)" stroke="rgba(255,255,255,.12)" stroke-width="1.2"/>
+              <path d="M175 510
+                       C205 470, 232 450, 260 445
+                       C288 450, 315 470, 345 510"
+                    fill="none" stroke="url(#paperEdge)" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+            </g>
+
+            <!-- ribbon bow -->
+            <g opacity=".95">
+              <path d="M260 535
+                       C235 515, 205 520, 212 548
+                       C220 578, 252 577, 260 560
+                       C268 577, 300 578, 308 548
+                       C315 520, 285 515, 260 535 Z"
+                    fill="rgba(255,79,147,.18)" stroke="rgba(255,79,147,.45)" stroke-width="1.6"/>
+              <path d="M220 545 C205 550, 190 565, 195 582 C205 590, 222 580, 232 565"
+                    fill="none" stroke="url(#ribbon)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M300 545 C315 550, 330 565, 325 582 C315 590, 298 580, 288 565"
+                    fill="none" stroke="url(#ribbon)" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="260" cy="558" r="4" fill="rgba(255,211,138,.8)"/>
+            </g>
+
+            <!-- constellation flowers -->
+            <g stroke="rgba(255,247,251,.34)" stroke-width="1.7" fill="none" stroke-linecap="round">
+              <!-- left big -->
+              <path d="M145 315 L115 260 L140 210 L185 235 L170 285 Z"/>
+              <!-- center big -->
+              <path d="M250 295 L215 245 L248 195 L295 235 L270 270 Z"/>
+              <!-- right big -->
+              <path d="M380 315 L410 260 L385 210 L340 235 L355 285 Z"/>
+              <!-- side smalls -->
+              <path d="M175 345 L155 305 L175 270 L205 305 Z" opacity=".95"/>
+              <path d="M345 345 L365 305 L345 270 L315 305 Z" opacity=".95"/>
+            </g>
+
+            <!-- stars -->
+            <g>
+              <!-- helper function replaced by manual stars (pretty colors) -->
+              <!-- left big stars -->
+              <circle class="twinkle" cx="145" cy="315" r="3.8" fill="rgba(255,79,147,.95)"/>
+              <circle class="twinkle tw2" cx="115" cy="260" r="3.0" fill="rgba(255,255,255,.92)"/>
+              <circle class="twinkle tw3" cx="140" cy="210" r="3.2" fill="rgba(199,178,255,.95)"/>
+              <circle class="twinkle" cx="185" cy="235" r="2.9" fill="rgba(255,211,138,.95)"/>
+              <circle class="twinkle tw2" cx="170" cy="285" r="2.7" fill="rgba(134,255,225,.95)"/>
+              <circle cx="145" cy="315" r="12" fill="url(#starGlow)" opacity=".38"/>
+
+              <!-- center big stars -->
+              <circle class="twinkle" cx="250" cy="295" r="4.2" fill="rgba(255,211,138,.95)"/>
+              <circle class="twinkle tw2" cx="215" cy="245" r="3.1" fill="rgba(255,255,255,.92)"/>
+              <circle class="twinkle tw3" cx="248" cy="195" r="3.5" fill="rgba(255,79,147,.95)"/>
+              <circle class="twinkle" cx="295" cy="235" r="3.0" fill="rgba(199,178,255,.95)"/>
+              <circle class="twinkle tw2" cx="270" cy="270" r="2.8" fill="rgba(134,255,225,.95)"/>
+              <circle cx="250" cy="295" r="14" fill="url(#starGlow)" opacity=".40"/>
+
+              <!-- right big stars -->
+              <circle class="twinkle" cx="380" cy="315" r="3.8" fill="rgba(134,255,225,.95)"/>
+              <circle class="twinkle tw2" cx="410" cy="260" r="3.0" fill="rgba(255,255,255,.92)"/>
+              <circle class="twinkle tw3" cx="385" cy="210" r="3.2" fill="rgba(199,178,255,.95)"/>
+              <circle class="twinkle" cx="340" cy="235" r="2.9" fill="rgba(255,211,138,.95)"/>
+              <circle class="twinkle tw2" cx="355" cy="285" r="2.7" fill="rgba(255,79,147,.95)"/>
+              <circle cx="380" cy="315" r="12" fill="url(#starGlow)" opacity=".36"/>
+
+              <!-- small left -->
+              <circle class="twinkle" cx="175" cy="345" r="3.1" fill="rgba(199,178,255,.95)"/>
+              <circle class="twinkle tw2" cx="155" cy="305" r="2.4" fill="rgba(255,255,255,.92)"/>
+              <circle class="twinkle tw3" cx="175" cy="270" r="2.6" fill="rgba(255,211,138,.95)"/>
+              <circle class="twinkle" cx="205" cy="305" r="2.3" fill="rgba(255,79,147,.95)"/>
+
+              <!-- small right -->
+              <circle class="twinkle" cx="345" cy="345" r="3.1" fill="rgba(199,178,255,.95)"/>
+              <circle class="twinkle tw2" cx="365" cy="305" r="2.4" fill="rgba(255,255,255,.92)"/>
+              <circle class="twinkle tw3" cx="345" cy="270" r="2.6" fill="rgba(255,211,138,.95)"/>
+              <circle class="twinkle" cx="315" cy="305" r="2.3" fill="rgba(255,79,147,.95)"/>
+            </g>
+
+            <!-- little heart star -->
+            <path d="M260 500
+                     C250 488, 230 492, 236 510
+                     C243 532, 260 540, 260 540
+                     C260 540, 277 532, 284 510
+                     C290 492, 270 488, 260 500 Z"
+                  fill="rgba(255,79,147,.18)"
+                  stroke="rgba(255,79,147,.42)"
+                  stroke-width="1.6"/>
+            <circle class="twinkle" cx="260" cy="516" r="2.6" fill="rgba(255,79,147,.95)"/>
+          </svg>
         </div>
       </div>
     </section>
 
     <footer>
       <div>Made with ♡ + stardust.</div>
-      <div>GitHub Pages ready (single file).</div>
+      <div>Tip: click “Make it sparkle” ✨</div>
     </footer>
   </div>
 
   <script>
-    // Date badge (Bangkok-friendly display)
+    // Date badge
     const now = new Date();
     document.getElementById("dateBadge").textContent =
       now.toLocaleDateString("en-GB", { weekday:"long", year:"numeric", month:"short", day:"numeric" });
 
-    const canvas = document.getElementById("c");
-    const ctx = canvas.getContext("2d");
-
-    // Controls
-    const el = {
-      petals: document.getElementById("petals"),
-      bloom: document.getElementById("bloom"),
-      size: document.getElementById("size"),
-      sparkle: document.getElementById("sparkle"),
-      petalsV: document.getElementById("petalsV"),
-      bloomV: document.getElementById("bloomV"),
-      sizeV: document.getElementById("sizeV"),
-      sparkleV: document.getElementById("sparkleV"),
-    };
-
-    // For smooth bloom animation
-    let anim = { t: 1 }; // 0..1
-    let isAnimating = false;
-
-    function lerp(a,b,t){ return a + (b-a)*t; }
-    function clamp(x,a,b){ return Math.max(a, Math.min(b, x)); }
-    function rand(seed){
-      // deterministic-ish RNG (Mulberry32)
-      let t = seed += 0x6D2B79F5;
-      t = Math.imul(t ^ (t >>> 15), t | 1);
-      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    }
-
-    function drawBackground(){
-      const w = canvas.width, h = canvas.height;
-      ctx.clearRect(0,0,w,h);
-
-      // dark base
-      const g = ctx.createLinearGradient(0,0,0,h);
-      g.addColorStop(0, "#070711");
-      g.addColorStop(0.55, "#12081c");
-      g.addColorStop(1, "#1a0b20");
-      ctx.fillStyle = g;
-      ctx.fillRect(0,0,w,h);
-
-      // soft glows
-      function glow(x,y,r,rgba){
-        const gg = ctx.createRadialGradient(x,y,0,x,y,r);
-        gg.addColorStop(0, rgba);
-        gg.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.fillStyle = gg;
-        ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
+    // Sparkle: add temporary extra glints around the bouquet
+    const sparkBtn = document.getElementById("sparkBtn");
+    sparkBtn.addEventListener("click", () => {
+      const svg = document.querySelector(".bouquet");
+      const glints = [];
+      for(let i=0;i<14;i++){
+        const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        c.setAttribute("cx", 120 + Math.random()*280);
+        c.setAttribute("cy", 140 + Math.random()*220);
+        c.setAttribute("r", 1.8 + Math.random()*2.4);
+        c.setAttribute("fill", "rgba(255,255,255,.95)");
+        c.style.opacity = "0";
+        c.style.filter = "drop-shadow(0 0 12px rgba(255,255,255,.35))";
+        c.style.transition = "opacity 220ms ease";
+        svg.appendChild(c);
+        glints.push(c);
+        setTimeout(()=> c.style.opacity = String(.65 + Math.random()*.35), 45*i);
       }
-      glow(w*0.25, h*0.22, w*0.45, "rgba(255,79,147,.18)");
-      glow(w*0.78, h*0.28, w*0.40, "rgba(199,178,255,.15)");
-      glow(w*0.52, h*0.88, w*0.46, "rgba(255,211,138,.10)");
-
-      // tiny stars
-      ctx.fillStyle = "rgba(255,255,255,.55)";
-      for(let i=0;i<120;i++){
-        const x = rand(i+3)*w;
-        const y = rand(i+91)*h;
-        const r = 0.7 + rand(i+77)*1.2;
-        ctx.globalAlpha = 0.25 + rand(i+12)*0.55;
-        ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-    }
-
-    // Draw a "perfect" rose-like flower using polar petals
-    function drawFlower(petals, bloom, size, sparkle, bloomAnim){
-      const w = canvas.width, h = canvas.height;
-      const cx = w/2, cy = h/2 + 40;
-
-      // bloomAnim eases from 0..1
-      const open = bloomAnim; // 0 closed, 1 open
-      const bloomAmt = (bloom/100) * open;
-
-      // Petal field: use many curved "petal strokes"
-      // Model: r = base + k*sin(n*theta) with taper, plus spiral twist
-      const n = Math.max(20, Math.floor(petals));
-      const baseR = lerp(70, 160, bloomAmt);
-      const maxR  = baseR + lerp(120, 350, size/100) * (0.55 + 0.45*bloomAmt);
-      const twist = lerp(0.65, 1.25, bloomAmt);
-
-      // Petal color gradients
-      function petalGrad(r){
-        const gg = ctx.createRadialGradient(cx,cy, r*0.05, cx,cy, r*1.05);
-        gg.addColorStop(0,   "rgba(255,155,196,.15)");
-        gg.addColorStop(0.25,"rgba(255,79,147,.22)");
-        gg.addColorStop(0.6, "rgba(255,211,138,.10)");
-        gg.addColorStop(1,   "rgba(199,178,255,.08)");
-        return gg;
-      }
-
-      // center glow
-      const center = ctx.createRadialGradient(cx,cy,0,cx,cy,220);
-      center.addColorStop(0,"rgba(255,211,138,.20)");
-      center.addColorStop(0.35,"rgba(255,79,147,.16)");
-      center.addColorStop(1,"rgba(0,0,0,0)");
-      ctx.fillStyle = center;
-      ctx.beginPath(); ctx.arc(cx,cy,240,0,Math.PI*2); ctx.fill();
-
-      // petals
-      for(let i=0;i<n;i++){
-        const theta = (i/n) * Math.PI * 2;
-        const wave = Math.sin(theta * (8 + 10*bloomAmt));
-        const r1 = lerp(baseR, maxR, (i/(n-1))**0.72);
-        const r = r1 * (0.86 + 0.18*wave);
-
-        const a = theta * twist + (i*0.0025);
-        const x = cx + Math.cos(a)*r;
-        const y = cy + Math.sin(a)*r;
-
-        // Petal stroke thickness tapers outward
-        const t = i/(n-1);
-        const lw = lerp(26, 3.5, t) * (0.7 + 0.3*bloomAmt);
-
-        ctx.strokeStyle = petalGrad(r);
-        ctx.lineWidth = lw;
-        ctx.lineCap = "round";
-
-        // Curved petal: small bezier from near center to outer point
-        const innerR = lerp(20, 95, bloomAmt);
-        const ix = cx + Math.cos(a)*innerR;
-        const iy = cy + Math.sin(a)*innerR;
-
-        const ctrlR = lerp(80, r*0.62, bloomAmt);
-        const c1x = cx + Math.cos(a - 0.25)*ctrlR;
-        const c1y = cy + Math.sin(a - 0.25)*ctrlR;
-        const c2x = cx + Math.cos(a + 0.25)*ctrlR;
-        const c2y = cy + Math.sin(a + 0.25)*ctrlR;
-
-        ctx.beginPath();
-        ctx.moveTo(ix,iy);
-        ctx.bezierCurveTo(c1x,c1y,c2x,c2y,x,y);
-        ctx.stroke();
-      }
-
-      // outline shimmer ring
-      ctx.globalAlpha = 0.8;
-      ctx.strokeStyle = "rgba(255,247,251,.10)";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.arc(cx, cy, maxR*0.56, 0, Math.PI*2);
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-
-      // constellation sparkles
-      const sp = sparkle/100;
-      const starCount = Math.floor(60 + sp*180);
-      for(let i=0;i<starCount;i++){
-        const r = lerp(40, maxR*0.92, rand(i+100)*rand(i+50));
-        const ang = rand(i+200)*Math.PI*2;
-        const x = cx + Math.cos(ang)*r;
-        const y = cy + Math.sin(ang)*r;
-        const s = 0.8 + rand(i+420)*2.8;
-        const a = 0.12 + rand(i+999)*0.55*sp;
-
-        ctx.fillStyle = `rgba(255,255,255,${a})`;
-        ctx.beginPath(); ctx.arc(x,y,s,0,Math.PI*2); ctx.fill();
-
-        // occasional colored star
-        if(rand(i+777) < 0.08*sp){
-          const tint = (rand(i+888) < 0.5) ? `rgba(255,79,147,${0.25+0.35*sp})` : `rgba(255,211,138,${0.22+0.32*sp})`;
-          ctx.fillStyle = tint;
-          ctx.beginPath(); ctx.arc(x+rand(i+5)*2-1, y+rand(i+6)*2-1, s*0.9, 0, Math.PI*2); ctx.fill();
-        }
-      }
-
-      // stems + tiny bow at bottom
-      const by = cy + maxR*0.58;
-      ctx.strokeStyle = "rgba(134,255,225,.30)";
-      ctx.lineWidth = 6;
-      ctx.lineCap = "round";
-      ctx.beginPath();
-      ctx.moveTo(cx-8, by);
-      ctx.quadraticCurveTo(cx-60, by+130, cx-70, h-110);
-      ctx.moveTo(cx+8, by);
-      ctx.quadraticCurveTo(cx+60, by+130, cx+70, h-110);
-      ctx.stroke();
-
-      // ribbon
-      ctx.strokeStyle = "rgba(255,211,138,.28)";
-      ctx.lineWidth = 5;
-      ctx.beginPath();
-      ctx.moveTo(cx-95, h-120);
-      ctx.quadraticCurveTo(cx, h-150, cx+95, h-120);
-      ctx.stroke();
-
-      // tiny heart
-      ctx.fillStyle = "rgba(255,79,147,.22)";
-      ctx.strokeStyle = "rgba(255,79,147,.45)";
-      ctx.lineWidth = 2;
-      const hx = cx, hy = h-132;
-      ctx.beginPath();
-      ctx.moveTo(hx, hy);
-      ctx.bezierCurveTo(hx-26, hy-18, hx-44, hy+12, hx, hy+34);
-      ctx.bezierCurveTo(hx+44, hy+12, hx+26, hy-18, hx, hy);
-      ctx.fill(); ctx.stroke();
-    }
-
-    function render(){
-      const petals = +el.petals.value;
-      const bloom  = +el.bloom.value;
-      const size   = +el.size.value;
-      const sparkle= +el.sparkle.value;
-
-      el.petalsV.textContent = petals;
-      el.bloomV.textContent  = bloom;
-      el.sizeV.textContent   = size;
-      el.sparkleV.textContent= sparkle;
-
-      drawBackground();
-      drawFlower(petals, bloom, size, sparkle, anim.t);
-    }
-
-    function animateBloom(){
-      if(isAnimating) return;
-      isAnimating = true;
-      const start = performance.now();
-      const from = anim.t;
-      const to = (anim.t < 0.98) ? 1 : 0.72; // bloom open then settle
-
-      function easeInOut(t){
-        return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
-      }
-
-      function step(now){
-        const p = clamp((now - start)/900, 0, 1);
-        anim.t = lerp(from, to, easeInOut(p));
-        render();
-        if(p < 1) requestAnimationFrame(step);
-        else isAnimating = false;
-      }
-      requestAnimationFrame(step);
-    }
-
-    // Events
-    ["petals","bloom","size","sparkle"].forEach(id=>{
-      el[id].addEventListener("input", render);
+      setTimeout(() => {
+        glints.forEach(g => g.style.opacity = "0");
+        setTimeout(()=> glints.forEach(g => g.remove()), 360);
+      }, 1500);
     });
 
-    document.getElementById("animateBtn").addEventListener("click", animateBloom);
-
-    document.getElementById("saveBtn").addEventListener("click", () => {
-      const a = document.createElement("a");
-      a.download = "valentine-bloom.png";
-      a.href = canvas.toDataURL("image/png");
-      a.click();
-    });
-
-    document.getElementById("personalizeBtn").addEventListener("click", () => {
+    // Personalize text
+    document.getElementById("editBtn").addEventListener("click", () => {
       const her = prompt("Her name (e.g., ‘Maya’):", "Maya");
       if(her === null) return;
       const you = prompt("Your name (e.g., ‘Aomsin’):", "Aomsin");
@@ -523,17 +486,14 @@
 
       document.getElementById("headline").textContent = `To ${her}, my favorite lawyer star ✦`;
       document.getElementById("subhead").innerHTML =
-        `Happy Valentine’s Day, <b>${her}</b>. I know internship + studying five days a week is intense —
-         so here’s a perfect flower that keeps blooming, just for you.`;
+        `Happy Valentine’s Day, <b>${her}</b>. I know internship + studying five days a week is a lot —
+         so I made you a bouquet that won’t wilt. It just keeps shining.`;
+
       document.getElementById("note").innerHTML =
-        `<b>tiny reminder:</b> You’re allowed to be brilliant <i>and</i> soft.
-         Rest is not a reward — it’s a right.
+        `<b>tiny reminder:</b> You don’t have to earn rest. You deserve it.
+         You’re allowed to be ambitious <i>and</i> happy.
          <br><br>Always cheering for you — <b>${you}</b> ♡`;
     });
-
-    // Initial render + slight intro bloom
-    render();
-    setTimeout(() => { anim.t = 0.72; render(); }, 120);
   </script>
 </body>
 </html>
